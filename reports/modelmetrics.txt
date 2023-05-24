@@ -1,0 +1,11 @@
+Final Model:
+    RandomForestRegressor
+Hyperparameters:
+    'max_features': 0.2,
+    'n_estimators': 297
+Performance metrics:
+    CV Scores: [ 0.20037049,  0.09601506,  0.33148782, -0.37325778,  0.12279508]
+    Test Scores:
+        R^2 = 0.5747791791156027
+        MSE = 3.324085976558219
+        MAE = 2.221380501059646
