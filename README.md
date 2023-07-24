@@ -5,14 +5,14 @@ Wildfire Prediction in California Counties
 
 This is my first capstone project for Springboard.
 
-# Introduction
+## Introduction
 
 In 2020 alone, wildfires burned 4.2 million acres of land, and 31 people died[^1]. Responses to fires were strained; there were not enough resources and crew to take care of the fires. They were forced to request off-duty firefighters to return to work. Aside from direct destruction, fires indirectly affect other aspects of civilian life, including health and business. Evacuations and poor air quality can prevent people from maintaining and using their facilities for extended periods of time. For example, due to the Caldor Fire, a restaurant in South Lake Tahoe lost $10,000 to $13,000 in perishables, even though there was no structural damage to the city, and overall, the city estimated its loss to be over $50 million [^2]. Insurance companies, local governments, or fire control may want to allocate resources or policies or deploy different awareness and mitigation strategies more specifically depending on each region's unique risk. This project aims to find counties that have fires and to determine how many fires they may have each year.
 
 [^1]: J. Cart, “California’s 2020 fire siege: wildfires by the numbers,” Cal Matters, July 2021. ([Link](https://calmatters.org/economy/2021/10/california-wildfires-economic-impact/))
 [^2]: G. Gedye, “How much do wildfires really cost California’s economy?” Cal Matters, October 2021. ([Link](https://calmatters.org/environment/2021/07/california-fires-2020/>))
 
-## The Datasets
+### The Datasets
 
 This project used a handful of data sources, but for the most part, the two CIMIS datasets were not used in the final model.
 
@@ -22,7 +22,7 @@ This project used a handful of data sources, but for the most part, the two CIMI
 - County information: Collected from Wikipedia, which has generic county information and 2022 census information from the National Association of Counties (NACo). ([Link](https://simple.wikipedia.org/wiki/List_of_counties_in_California))
 - County geographical information: Downloaded a GEOJSON file containing geographical information of US counties, filtered for California counties only. ([Link](https://public.opendatasoft.com/explore/dataset/us-county-boundaries/table/))
 
-# Project Organization
+## Project Organization
 ------------
 
     ├── LICENSE
@@ -73,7 +73,7 @@ This project used a handful of data sources, but for the most part, the two CIMI
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
 
-# Data Wrangling
+## Data Wrangling
 
 [Notebook link](notebooks/1.0-rc-data-wrangling.ipynb).
 
@@ -158,13 +158,13 @@ At this step, data was collected and defined and underwent a preliminary cleanin
 </details>
 </details>
 
-# Exploratory Data Analysis
+## Exploratory Data Analysis
 
 [Notebook link](notebooks/2.1-rc-exploratory-data-analysis.ipynb).
 
 Here we explored the data to understand each feature and their relationships with one another, and we engineered some features. Mostly, a lot of cleaning was required, and some data was verified or fixed after some investigation.
 
-## A. Fire Data
+### A. Fire Data
 
 The fire data was pruned somewhat aggressively; if a feature had more than 20% missing values, then it was dropped. Features with missing values that were deemed potentially important at the time were cross-referenced with online sources or filled by imputation.
 
@@ -174,15 +174,15 @@ The fire data was pruned somewhat aggressively; if a feature had more than 20% m
 
 **Days active**: A new feature was created from existing features: the ActiveDays feature represents the number of days that the fire burned. This was simply a subtraction of the Started date from the Extinguished date, which revealed that there were unfortunately *many* unreliable Extinguished dates. A lot of dates appeared to be default dates. Namely, some fires were extinguished in the following January, even tiny fires that may have started in early summer. The correct date was imputed primarily using medians of subsets of fires, since the mean can be very volatile because a few outlier fires can burn substantially longer than most.
 
-## B. Environmental Conditions Data
+### B. Environmental Conditions Data
 
 Counties were added to the environmental conditions (climate) dataset from the `stations_df`. There were not too many missing values in the `climate_df`, so these missing values were imputed using the mean values within the same month from either the same station in a different year or from the same county if that station always had missing values for every year and month combination. The climate data was also aggregated in months per county for further exploration.
 
-## C. County Data
+### C. County Data
 
 County characteristics were scraped from the “List of counties in California” Wikipedia page. Two features were basically added to the existing county data: the population in 2022 and the area in square miles. We lack information about the environments of these fire incidents, but the size and population density may hint at environmental characteristics. Wildfires need fuel, which means that they would prefer places with a lot of things to burn, such as forests and chaparrals, so a larger size and lower population density may be favored by fires, though houses can serve as fuel as well. Other features were aggregated and engineered for the counties, such as population density, fire proportions, and monthly statistics.
 
-## D. Visualizations
+### D. Visualizations
 
 **Fires and months**: The number of acres burned and days active have extreme outliers, and a vast majority of the fires were small and short. Summer and autumn months (June to October) experienced the most fires, though there were a few outliers in December and February, and the two years that had the most fires were 2017 and 2018.
 
@@ -215,12 +215,12 @@ Total acres burned of fires started in a month
 
 TODO
 
-# Preprocessing and Modeling
+## Preprocessing and Modeling
 
 [Notebook link](notebooks/3.0-rc-preprocessing-training.ipynb).
 TODO
 
-# Conclusion and Future Work
+## Conclusion and Future Work
 
 [Notebook link](notebooks/4.0-rc-modeling.ipynb).
 TODO
