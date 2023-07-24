@@ -77,14 +77,13 @@ This project used a handful of data sources, but for the most part, the two CIMI
 
 [Notebook link](notebooks/1.0-rc-data-wrangling.ipynb).
 
-At this step, data was collected and defined and underwent a preliminary cleaning. The wildfire dataset contained a lot of missing values, and much of the information did not seem to be standardized. A few important numerical features were mostly provided, such as the names, location information, number of acres burned, and dates. Other information that would have been nice to know could include the fuel type, the cause of fire, and more robust location data. There were some duplicate fires because if one fire could occur in multiple counties, but these could be determined using their unique IDs. The environmental conditions dataset was almost completely populated and clean, and the ranges and seeming outliers looked acceptable. However, this dataset was lacking information about the location of each data point or station. Furthermore, data was not retrieved from every station, so some areas of California were missing.
+At this step, data was collected and defined and underwent a preliminary cleaning. The wildfire dataset contained a lot of missing values, and much of the information did not seem to be standardized. A few important numerical features were mostly provided, such as the names, location information, number of acres burned, and dates. Other information that would have been nice to know could include the fuel type, the cause of fire, and more robust location data. There were some duplicate fires because if one fire could occur in multiple counties, but these could be determined using their unique IDs. The environmental conditions dataset was almost completely populated and clean, and the ranges and seeming outliers looked acceptable. However, this dataset was lacking information about the location of each data point or station. Furthermore, data was not retrieved from every station, so some areas of California were missing. Using the CIMIS API, a station information was added to our collection of datasets. By the end of this notebook, there were three dataframes: `fire_df` containing the wildfire dataset, `climate_df` containing the environmental conditions dataset, and `stations_df` containing information about the stations that recorded the data in `climate_df`.
 
 <details>
-
 <summary>Data descriptions for the original wildfire and environmental conditions datasets.</summary>
 
 <details>
-<summary>`fire_df`: the wildfire dataset.</summary>
+<summary>The wildfire dataset.</summary>
 
 | Column | Dtype | Description |
 | --- | --- | --- |
@@ -132,7 +131,7 @@ At this step, data was collected and defined and underwent a preliminary cleanin
 </details>
 
 <details>
-<summary>`climate_df`: the environmental conditions dataset.</summary>
+<summary>The environmental conditions dataset.</summary>
 
 | Column | Dtype | Description |
 | --- | --- | --- |
@@ -162,7 +161,37 @@ At this step, data was collected and defined and underwent a preliminary cleanin
 # Exploratory Data Analysis
 
 [Notebook link](notebooks/2.1-rc-exploratory-data-analysis.ipynb).
-TODO
+
+Here we explored the data to understand each feature and their relationships with one another, and we engineered some features. Mostly, a lot of cleaning was required, and some data was verified or fixed after some investigation.
+
+## A. Fire Data
+
+The fire data was pruned somewhat aggressively; if a feature had more than 20% missing values, then it was dropped. Features with missing values that were deemed potentially important at the time were cross-referenced with online sources or filled by imputation.
+
+**Dates**: Larger wildfire incidents’ dates could be fixed by checking their values in the Redbooks, which are written and released by the California Department of Forestry and Fire Protection. For the bad dates of smaller fires, most of them were approximated by considering all three of the incident’s dates (Started, Extinguished, and Updated) and occasionally the canonical URL (which corresponds to an incident’s Started date), since in most cases, only one of the three were erroneous. Finally, if both using existing dates and using the canonical URL failed, the yet remaining small fires were simply assigned to have lasted only one day. Two features were extracted from the existing date information: the year and month of the started date.
+
+**Geographic coordinates**: The dataset contained some bad latitude and longitude coordinates, and an investigation revealed that in most cases, this was generally a repeat input, a swap of the two coordinates, a typo, or an arbitrary input. About 160 bad coordinates for latitude and longitude were found using a generous rectangular range of California’s boundaries. There was only one coordinate that skipped this basic filter that was revealed in a plot of the coordinates. The bad coordinates were simply reassigned to match the center coordinates of the fire’s county.
+
+**Days active**: A new feature was created from existing features: the ActiveDays feature represents the number of days that the fire burned. This was simply a subtraction of the Started date from the Extinguished date, which revealed that there were unfortunately *many* unreliable Extinguished dates. A lot of dates appeared to be default dates. Namely, some fires were extinguished in the following January, even tiny fires that may have started in early summer. The correct date was imputed primarily using medians of subsets of fires, since the mean can be very volatile because a few outlier fires can burn substantially longer than most.
+
+## B. Environmental Conditions Data
+
+Counties were added to the environmental conditions (climate) dataset from the `stations_df`. There were not too many missing values in the `climate_df`, so these missing values were imputed using the mean values within the same month from either the same station in a different year or from the same county if that station always had missing values for every year and month combination. The climate data was also aggregated in months per county for further exploration.
+
+## C. County Data
+
+County characteristics were scraped from the “List of counties in California” Wikipedia page. Two features were basically added to the existing county data: the population in 2022 and the area in square miles. We lack information about the environments of these fire incidents, but the size and population density may hint at environmental characteristics. Wildfires need fuel, which means that they would prefer places with a lot of things to burn, such as forests and chaparrals, so a larger size and lower population density may be favored by fires, though houses can serve as fuel as well. Other features were aggregated and engineered for the counties, such as population density, fire proportions, and monthly statistics.
+
+## D. Visualizations
+
+The number of acres burned and days active have extreme outliers, and a vast majority of the fires were small and short. Summer and autumn months (June to October) experienced the most fires, though there were a few outliers in December and February, and the two years that had the most fires were 2017 and 2018.
+
+<details>
+<summary>Monthly fire figures</summary>
+![Acres burned per month](reports/figures/permonth_acresburned.png)
+![Days burned from fires started in month](reports/figures/permonth_totaldays.png)
+![Total fires started per month](reports/figures/permonth_totalfires)
+</details>
 
 # Preprocessing and Modeling
 
