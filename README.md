@@ -27,7 +27,7 @@ In recent years, we have been experiencing bigger fires. The reasons for this ch
 
 California wildfires over time
 <p align="center">
-  <img src="/reports/figures/acresburned_1987-2018" alt="Acres burned in the years 1987-2018 in California">
+  <img src="/reports/figures/acresburned_1987-2018.png" alt="Acres burned in the years 1987-2018 in California">
 </p>
 
 Of course, anyone close to a high-risk fire area is immediately impacted by fires. Others should be concerned as well, and US citizens around the nation are even affected [^3]. Insurance companies, local governments, or fire control may want to allocate resources or policies or deploy different awareness and mitigation strategies more specifically depending on each region's unique risk. This project aims to find counties that have fires and to determine how many fires they may have each year. Specifically, this project uses the county and its size to try to predict the fires. Admittedly, this is an oversimplification for influences on a fire, but it can be sufficient for the scope of this project.
