@@ -1,4 +1,6 @@
-![2020 Apple Fire in Beaumont, CA, photograph by Brody Hessin](https://upload.wikimedia.org/wikipedia/commons/3/3f/The_Apple_Fire_burns_north_of_Beaumont%2C_Friday%2C_July_31%2C_2020.jpg)
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/The_Apple_Fire_burns_north_of_Beaumont%2C_Friday%2C_July_31%2C_2020.jpg" alt="2020 Apple Fire in Beaumont, CA, photograph by Brody Hessin">
+</p>
 
 Wildfire Prediction in California Counties
 ==============================
@@ -7,10 +9,33 @@ This is my first capstone project for Springboard.
 
 ## Introduction
 
-In 2020 alone, wildfires burned 4.2 million acres of land, and 31 people died[^1]. Responses to fires were strained; there were not enough resources and crew to take care of the fires. They were forced to request off-duty firefighters to return to work. Aside from direct destruction, fires indirectly affect other aspects of civilian life, including health and business. Evacuations and poor air quality can prevent people from maintaining and using their facilities for extended periods of time. For example, due to the Caldor Fire, a restaurant in South Lake Tahoe lost $10,000 to $13,000 in perishables, even though there was no structural damage to the city, and overall, the city estimated its loss to be over $50 million [^2]. Insurance companies, local governments, or fire control may want to allocate resources or policies or deploy different awareness and mitigation strategies more specifically depending on each region's unique risk. This project aims to find counties that have fires and to determine how many fires they may have each year.
+Fires can be bad because they can be destructive. Although they are a natural part of our ecosystem, we should try to understand and control them, or at least we should be able to respond to them efficiently and try to minimize the negative impacts on us. There are clear direct impacts on us, such as the damage to buildings or to our health, with deaths, trauma, and air pollution. Even proximity to a fire can be detrimental to civilians, with evacuations and restrictions on travel. Some other economic impacts include a reduction in work stability in fire risk areas or business closures and civilian displacement due to fire threat or damage.
 
-[^1]: J. Cart, “California’s 2020 fire siege: wildfires by the numbers,” Cal Matters, July 2021. ([Link](https://calmatters.org/economy/2021/10/california-wildfires-economic-impact/))
-[^2]: G. Gedye, “How much do wildfires really cost California’s economy?” Cal Matters, October 2021. ([Link](https://calmatters.org/environment/2021/07/california-fires-2020/>))
+2018 and 2020 were notoriously bad years for us. In 2020, wildfires burned 4 and a half million acres of land, and 31 people died [^1]. Responses to fires were strained; there were not enough resources and crew to take care of the fires. They were forced to request off-duty firefighters to return to work. In 2018, we experienced the most destructive and deadliest fire that we have had on record, with 85 deaths and nearly 19000 structures destroyed, which resulted in about $10 billion in property damage [^2]. In total, the 2018 California wildfires cost the economy $148.5 billion dollars [^3].
+
+Top 5 Most Destructive Wildfires up to 2022[^4]
+
+| Fire Name (County/Counties) | Date | Structures | Deaths |
+| --- | --- | --- | --- |
+| Camp Fire (Butte) | November 2018 | 18,804 | 85 |
+| Tubbs Fire (Napa & Sonoma) | October 2017 | 5636 | 22 |
+| Tunnel Fire (Alameda) | October 1991 | 2900 | 25 |
+| Cedar Fire (San Diego) | October 2003 | 2820 | 15 |
+| North Complex (Butte, Plumas, Yuba) | August 2020 | 2352 | 15 |
+
+In recent years, we have been experiencing bigger fires. The reasons for this change is up for debate, with some pointing at climate change and others at longer fire seasons and others at poor environmental maintenance, but whatever the case, it overall does not seem to be getting much better. Cal Fire started reliably recording wildfires in 1932, and when looking at the largest fires, the deadliest of fires, and the most destructive fires, 48 out of 60 of them were within the past two centuries.
+
+California wildfires over time
+<p align="center">
+  <img src="/reports/figures/acresburned_1987-2018" alt="Acres burned in the years 1987-2018 in California">
+</p>
+
+Of course, anyone close to a high-risk fire area is immediately impacted by fires. Others should be concerned as well, and US citizens around the nation are even affected [^3]. Insurance companies, local governments, or fire control may want to allocate resources or policies or deploy different awareness and mitigation strategies more specifically depending on each region's unique risk. This project aims to find counties that have fires and to determine how many fires they may have each year. Specifically, this project uses the county and its size to try to predict the fires. Admittedly, this is an oversimplification for influences on a fire, but it can be sufficient for the scope of this project.
+
+[^1]: J. Cart, “California’s 2020 fire siege: wildfires by the numbers”, Cal Matters, July 2021. ([Link](https://calmatters.org/economy/2021/10/california-wildfires-economic-impact/))
+[^2]: N. Reiff, "How Fire Season Affects Economy", Investopedia, 2022. ([Link](https://www.investopedia.com/how-fire-season-affects-the-economy-5194059))
+[^3]: K. Corry, “Full cost of California’s wildfires to the US revealed”, 2020. ([Link](https://www.ucl.ac.uk/news/2020/dec/full-cost-californias-wildfires-us-revealed))
+[^4]: California Department of Forestry and Fire Protection, 2022.
 
 ### The Datasets
 
@@ -189,14 +214,17 @@ County characteristics were scraped from the “List of counties in California�
 <details>
 <summary>Monthly fire figures</summary>
 
-Number of fires started per month
-![Total fires started per month](/reports/figures/permonth_totalfires.png)
+<p align="center">
+  <img src="/reports/figures/permonth_totalfires.png" alt="Total fires started per month">
+</p>
 
-Lengths of fires in days started in a month
-![Days burned from fires started in month](/reports/figures/permonth_totaldays.png)
+<p align="center">
+  <img src="/reports/figures/permonth_totaldays.png" alt="Days burned from fires started in month">
+</p>
 
-Total acres burned of fires started in a month
-![Acres burned per month](/reports/figures/permonth_acresburned.png)
+<p align="center">
+  <img src="/reports/figures/permonth_acresburned.png" alt="Acres burned per month">
+</p>
 
 </details>
 
@@ -204,23 +232,101 @@ Total acres burned of fires started in a month
 
 **Maps**: To illustrate the fires’ general locations, a quick scatterplot can be generated using their geographic coordinates, but a heatmap can more clearly depict intensities and frequencies of the wildfires. The maps clearly show specific areas where wildfires more commonly and intensely occur. These are often mountainous regions with a lot of forests and chaparrals. Sunnier, hotter regions such as those along the southern part of California also seem to experience a lot of wildfires.
 
-![Heatmap of all wildfires in 2013-2020](/reports/figures/heatmap_allfires.png)
+<p align="center">
+  Heatmap of all wildfires in 2013-2020
+  <img src="/reports/figures/heatmap_allfires.png" alt="Heatmap of all wildfires in 2013-2020">
+</p>
 
 <details>
 <summary>Scatter plot of latitude and longitude of fires</summary>
 
-![Scatter plot of lat/long of fires](/reports/figures/latlongfirescatter.png)
+<p align="center">
+  <img src="/reports/figures/latlongfirescatter.png" alt="Scatter plot of lat/long of fires">
+</p>
 
 </details>
 
-TODO
+While we do not have particularly robust or detailed geographic data, we do have some basic county information. The numbers and sizes of fires tend to be slightly higher for larger counties, and counties with lower populations tend to have larger and more numerous fires. Although the relationship between the size of a county and the number of fires in the county is not extraordinarily strong, it may suffice for the scope of this project.
+
+Area in square miles of a county versus the number of fires in the county
+<p align="center">
+  <img src="/reports/figures/areavfire.png" alt="County area in square miles vs number of fires">
+</p>
+
+There are limitations with using counties to aggregate the data. It is not specific enough in representing a local area because counties have irregular boundaries and diverse terrains. The geographic coordinates would probably be better at generalizing the environment of the fires. Using county-based information can lead to loss in the value of climate information because the climate can vary drastically within a county. (For example, within San Bernardino County, certain areas like Chino or Redlands tend to be hotter throughout the year, yet it can be snowing at the higher altitudes, such as in the San Bernardino Mountains.) However, aggregation by county is perhaps not wholly irrelevant because larger counties tend to encompass one or more areas that may frequently have fires, so a county's size may be able to abstractly express these biomes somewhat. A different potentially useful point of generalizing by county is that policies, economics, and resources may be divided by county or city, so maybe countywide statistics still do matter.
+
+<details>
+<summary>Fire metrics per county</summary>
+
+<p align="center">
+  <img src="/reports/figures/percounty_fires.png" alt="Number of fires started per county">
+</p>
+
+Riverside is a somewhat large county with a lot of chaparral areas, and it's warm to hot year-round. San Diego is also a somewhat large county, and it has similar biomes and climate (and has a sprinkle of forests) to Riverside, but it is against the coast, so the humidity and moisture levels are higher than Riverside's. However, San Diego County also receives a lot of sunlight and is one of the closest counties to the equator. Imperial is its neighbor along the lower border of California, but it has no fires because much of the region is agricultural or desert. Butte and Shasta are more medium-sized counties, but they should have a lot of mountainous and forested regions.
+
+<p align="center">
+  <img src="/reports/figures/percounty_acresburned.png" alt="Number of acres burned per county">
+</p>
+
+Colusa and Shasta have a lot of fuel to burn, as they are both regions with lots of forest. Interestingly, Santa Barbara has a lot of acres burned and it is a bit of an oddball if you take a glance of the top ten, but Santa Barbara's leading position is actually almost all due to one fire--the Thomas Fire burned nearly 300,000 acres!
+
+Thinking of these two together (and perhaps graphing these two features together), Riverside and San Diego have a lot of fires started but not very many acres burned. Perhaps proximity to human civilization and population density influence intensity and frequency, which would make sense. Responders will probably have easier access if it's in a more developed area. Fires will be contained faster if there is less fuel to burn, or if humans are more in danger. But this is speculation.
+
+</details>
 
 ## Preprocessing and Modeling
 
 [Notebook link](notebooks/3.0-rc-preprocessing-training.ipynb).
-TODO
+
+To prepare the data, fires were aggregated per county per year, and zeroes were filled in appropriately for counties and years that did not have fires. Each county was also dummy-encoded, and Alameda was dropped. For the training and testing split, the data were split into two partitions of 290 and 116 data points, which is a test split of about 28.6%, witht he training set containing the first five years 2013-2017 and the testing set containing the latter two years 2018-2019.
+
+[Notebook link](notebooks/4.0-rc-modeling.ipynb).
+
+Five preliminary models were quickly created and evaluated: LinearRegression, Ridge, RandomForestRegressor, GradientBoostingRegressor, and AdaBoostRegressor. The linear model performed decently with an R-squared of 0.57. The closer that the Ridge model's alpha was to zero, the better it performed, so it was close to the Linear Regressor anyway. Although the three tree-based algorithms were initially tested with arbitrary hyperparameters, they performed decently enough, so the Random Forest and Gradient Boosting models were moved forward to hyperparameter tuning using GridSearchCV.
+
+<details>
+<summary>Preliminary model metrics</summary>
+
+| Model | R^2 | RMSE | MAE |
+| --- | --- | --- | --- |
+| Linear | 0.574 | 3.328 | 2.224 |
+| Ridge α=0.01 | 0.573 | 3.330 | 2.226 |
+| Ridge α=0.1 | 0.568 | 3.349 | 2.236 |
+| Ridge α=1.0 | 0.528 | 3.503 | 2.311 |
+| Ridge α=10.0 | 0.292 | 4.290 | 2.849 |
+| Random Forest | 0.379 | 4.017 | 2.831 |
+| Gradient Boosting | 0.455 | 3.763 | 2.589 |
+| Ada Boost | 0.520 | 3.533 | 2.608 |
+
+</details>
+
+The hyperparameters selected for the RandomForestRegressor were the number of max features (`max_features`) of 0.2 and the number of estimators (`n_estimators`) of 297. The hyperparameters selected for the GradientBoostingRegressor were the learning rate (`learning_rate`) of 0.4, max depth (`max_depth`) of 2, and the number of estimators (`n_estimators`) of 12.
+
+Cross-validation of the two models found that the gradient boosting regressor's R-squared fell into a generally better range, but the medians of both were comparable. When scored using the testing set (entirely unseen data) the random forest regressor slightly outperformed the gradient boosting regressor. This could perhaps be explained by the fact that the random forest regressor put at least some weight on every county and is more exhaustive in its evaluations, whereas the gradient boosting model disregarded most of the counties and put much more weight on just the area (size) of the county. The tuned random forest model also performs slightly better than the first linear regression model.
+
+| Model | R^2 | RMSE | MAE |
+| --- | --- | --- | --- |
+| Random Forest | 0.575 | 3.324 | 2.221 |
+| Gradient Boosting | 0.490 | 3.641 | 2.506 |
+
+In terms of prediction, the random forest model would be the better choice. However, the gradient boosting model was about 20 and 40 times faster in learning speed and prediction speed, respectively. Still, there is only a finite number of counties, and the period used here is yearly, so having a larger computation time may not be too problematic.
+
+County map of predicted number of fires in 2019
+<p align="center">
+  <img src="/reports/figures/2019_pred.png" alt="Predicted number of fires in 2019">
+</p>
+
+County map of true number of fires in 2019
+<p align="center">
+  <img src="/reports/figures/2019_true.png" alt="True number of fires in 2019">
+</p>
+
+Generally, it predicted fewer fires than there were in each county in 2018 and 2019, but as mentioned before, 2018 was a notoriously bad year for fires. Still, it may represent a decent baseline prediction for the fires, especially considering that the number and intensities of fires tends to wax and wane.
 
 ## Conclusion and Future Work
 
-[Notebook link](notebooks/4.0-rc-modeling.ipynb).
-TODO
+The random forest model predicts the number of fires in each county per year. This can perhaps be used by groups like CAL FIRE for resource allocation and preparation of response teams or equipment to high-risk areas, or it could be used by insurance companies to help understand which counties are likely to experience high risk in a year.
+
+Wildfires are complex and difficult to predict in both their beginnings and their degrees of destruction. There are so many factors that go into their beginnings and intensities. This model is far from perfect, and a lot more work can be done about wildfires. As stated before, the county information and historical numbers of fires are very broad, but fires rely heavily on local conditions. It also doesn’t take well into account time: the fire seasons, the fluctuations of fires over time (the waxing and waning), and the overall increase in the number and intensities of fires over time. Other kinds of data could be considered for prediction, such as using geographic coordinates or other location divisions. Maybe we could find use for our climate data, or maybe we could look for oxygen levels or topographical information.
+
+Altogether different kinds of projects can also be explored. Maybe counties can be arranged in a hierarchy of risk, or the risk of the spread of a fire could be predicted or visualized. Image recognition using photographs of the local environment or satellite images could also help us know the fuel availability for fires.
