@@ -83,7 +83,8 @@ At this step, data was collected and defined and underwent a preliminary cleanin
 
 <summary>Data descriptions for the original wildfire and environmental conditions datasets.</summary>
 
-`fire_df`: the wildfire dataset.
+<details>
+<summary>`fire_df`: the wildfire dataset.</summary>
 
 | Column | Dtype | Description |
 | --- | --- | --- |
@@ -128,7 +129,10 @@ At this step, data was collected and defined and underwent a preliminary cleanin
 | Updated | object | Last date of update |
 | WaterTenders | float64 | Resources assigned |
 
-`climate_df`: the environmental conditions dataset.
+</details>
+
+<details>
+<summary>`climate_df`: the environmental conditions dataset.</summary>
 
 | Column | Dtype | Description |
 | --- | --- | --- |
@@ -152,6 +156,7 @@ At this step, data was collected and defined and underwent a preliminary cleanin
 | Avg Soil Temp (F) | float64 | Average soil temperature |
 | Target | int64 | Geography or weather station of interest |
 
+</details>
 </details>
 
 # Exploratory Data Analysis
