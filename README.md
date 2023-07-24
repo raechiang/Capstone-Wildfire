@@ -25,8 +25,8 @@ Top 5 Most Destructive Wildfires up to 2022[^4]
 
 In recent years, we have been experiencing bigger fires. The reasons for this change is up for debate, with some pointing at climate change and others at longer fire seasons and others at poor environmental maintenance, but whatever the case, it overall does not seem to be getting much better. Cal Fire started reliably recording wildfires in 1932, and when looking at the largest fires, the deadliest of fires, and the most destructive fires, 48 out of 60 of them were within the past two centuries.
 
-California wildfires over time
 <p align="center">
+  California Wildfires Over Time
   <img src="/reports/figures/acresburned_1987-2018.png" alt="Acres burned in the years 1987-2018 in California">
 </p>
 
@@ -215,14 +215,17 @@ County characteristics were scraped from the â€œList of counties in Californiaâ€
 <summary>Monthly fire figures</summary>
 
 <p align="center">
+  Total Fires Started per Month
   <img src="/reports/figures/permonth_totalfires.png" alt="Total fires started per month">
 </p>
 
 <p align="center">
+  Days Burned from Fires Started in Month
   <img src="/reports/figures/permonth_totaldays.png" alt="Days burned from fires started in month">
 </p>
 
 <p align="center">
+  Acres Burned per Month
   <img src="/reports/figures/permonth_acresburned.png" alt="Acres burned per month">
 </p>
 
@@ -233,7 +236,7 @@ County characteristics were scraped from the â€œList of counties in Californiaâ€
 **Maps**: To illustrate the firesâ€™ general locations, a quick scatterplot can be generated using their geographic coordinates, but a heatmap can more clearly depict intensities and frequencies of the wildfires. The maps clearly show specific areas where wildfires more commonly and intensely occur. These are often mountainous regions with a lot of forests and chaparrals. Sunnier, hotter regions such as those along the southern part of California also seem to experience a lot of wildfires.
 
 <p align="center">
-  Heatmap of all wildfires in 2013-2020
+  Heatmap of All Wildfires in 2013-2020
   <img src="/reports/figures/heatmap_allfires.png" alt="Heatmap of all wildfires in 2013-2020">
 </p>
 
@@ -248,8 +251,8 @@ County characteristics were scraped from the â€œList of counties in Californiaâ€
 
 While we do not have particularly robust or detailed geographic data, we do have some basic county information. The numbers and sizes of fires tend to be slightly higher for larger counties, and counties with lower populations tend to have larger and more numerous fires. Although the relationship between the size of a county and the number of fires in the county is not extraordinarily strong, it may suffice for the scope of this project.
 
-Area in square miles of a county versus the number of fires in the county
 <p align="center">
+  Area in Square Miles of a County Versus the Number of Fires in the County
   <img src="/reports/figures/areavfire.png" alt="County area in square miles vs number of fires">
 </p>
 
@@ -311,13 +314,13 @@ Cross-validation of the two models found that the gradient boosting regressor's 
 
 In terms of prediction, the random forest model would be the better choice. However, the gradient boosting model was about 20 and 40 times faster in learning speed and prediction speed, respectively. Still, there is only a finite number of counties, and the period used here is yearly, so having a larger computation time may not be too problematic.
 
-County map of predicted number of fires in 2019
 <p align="center">
+  County Map of Predicted Number of Fires in 2019
   <img src="/reports/figures/2019_pred.png" alt="Predicted number of fires in 2019">
 </p>
 
-County map of true number of fires in 2019
 <p align="center">
+  County Map of True Number of Fires in 2019
   <img src="/reports/figures/2019_true.png" alt="True number of fires in 2019">
 </p>
 
