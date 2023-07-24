@@ -193,7 +193,9 @@ The number of acres burned and days active have extreme outliers, and a vast maj
 
 ![Days burned from fires started in month](/reports/figures/permonth_totaldays.png)
 
-![Total fires started per month](/reports/figures/permonth_totalfires)
+![Total fires started per month](/reports/figures/permonth_totalfires.png)
+
+<img src="/reports/figures/permonth_acresburned.png" width="100" height="100" />
 
 </details>
 
