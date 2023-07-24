@@ -184,20 +184,36 @@ County characteristics were scraped from the “List of counties in California�
 
 ## D. Visualizations
 
-The number of acres burned and days active have extreme outliers, and a vast majority of the fires were small and short. Summer and autumn months (June to October) experienced the most fires, though there were a few outliers in December and February, and the two years that had the most fires were 2017 and 2018.
+**Fires and months**: The number of acres burned and days active have extreme outliers, and a vast majority of the fires were small and short. Summer and autumn months (June to October) experienced the most fires, though there were a few outliers in December and February, and the two years that had the most fires were 2017 and 2018.
 
 <details>
 <summary>Monthly fire figures</summary>
 
-![Acres burned per month](/reports/figures/permonth_acresburned.png)
-
-![Days burned from fires started in month](/reports/figures/permonth_totaldays.png)
-
+Number of fires started per month
 ![Total fires started per month](/reports/figures/permonth_totalfires.png)
 
-<img src="/reports/figures/permonth_acresburned.png" width="280" height="280" />
+Lengths of fires in days started in a month
+![Days burned from fires started in month](/reports/figures/permonth_totaldays.png)
+
+Total acres burned of fires started in a month
+![Acres burned per month](/reports/figures/permonth_acresburned.png)
 
 </details>
+
+**Fires and climate**: When all fires are compared to the environmental conditions, there does not seem to be strong correlations between them, but when looking at only the larger fires, there seems to be a bit more correlation with climate; however, it is still not particularly strong. Certain climate conditions may spread fires more and other climate conditions may obstruct response teams. Perhaps small fires may more often be started by random or unnatural causes that make them more unrelated to environmental conditions.
+
+**Maps**: To illustrate the fires’ general locations, a quick scatterplot can be generated using their geographic coordinates, but a heatmap can more clearly depict intensities and frequencies of the wildfires. The maps clearly show specific areas where wildfires more commonly and intensely occur. These are often mountainous regions with a lot of forests and chaparrals. Sunnier, hotter regions such as those along the southern part of California also seem to experience a lot of wildfires.
+
+![Heatmap of all wildfires in 2013-2020](/reports/figures/heatmap_allfires.png)
+
+<details>
+<summary>Scatter plot of latitude and longitude of fires</summary>
+
+![Scatter plot of lat/long of fires](/reports/figures/latlongfirescatter.png)
+
+</details>
+
+TODO
 
 # Preprocessing and Modeling
 
