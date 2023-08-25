@@ -5,7 +5,7 @@
 Wildfire Prediction in California Counties
 ==============================
 
-This is my first capstone project for Springboard.
+This is my first independent capstone project for Springboard.
 
 ## Introduction
 
